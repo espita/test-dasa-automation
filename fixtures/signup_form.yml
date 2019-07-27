@@ -1,0 +1,8 @@
+signup:
+  password: 'change123456'
+  day-birth: '10'
+  month-birth: 'July'
+  year-birth: '1980'
+  state: 'New York'
+  zip: '10001'
+  phone-mobile: '212736000'

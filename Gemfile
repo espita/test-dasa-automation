@@ -2,12 +2,12 @@
 
 source "https://rubygems.org"
 
-gem 'cucumber', '~> 3.1'
-gem 'rspec', '~> 3.6.0'
-gem 'cucumber', '~> 3.1'
-gem 'selenium-webdriver', '~> 3.9'
-gem 'rspec', :require => 'spec'
+gem 'capybara'
+gem 'cucumber'
+gem "rspec", :require => "spec"
+gem 'selenium-webdriver'
+gem 'webdrivers'
 gem 'pry'
 gem 'faker', '1.9.2'  
 gem 'cpf_faker'
-gem 'site_prism', '~> 2.9'
+gem 'site_prism'

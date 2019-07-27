@@ -7,8 +7,8 @@ As a new user
 I want to create an e-commerce registration
 In order to make a purchase
 
-Background: Background name
+Background: Register a new user
+    Given I acess the sign up 
+    When that I register a new user
 
-
-Scenario: 
-
+Scenario: Purchase flow
