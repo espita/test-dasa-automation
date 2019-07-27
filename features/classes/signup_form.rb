@@ -42,9 +42,6 @@ class Signup_Form < SitePrism::Page
     end
     
     def submit_form
-        
-        binding.pry
-        
         register_button.click
     end
 
@@ -52,10 +49,9 @@ class Signup_Form < SitePrism::Page
         @user_name = @first_name + " " + @last_name
         within (".account") do
           page.has_content?(@user_name)	
-          puts @user_name
         end
     end
-    
+
     def wait_page_form_load
         wait_until_my_day_of_birth_visible
         wait_until_my_month_of_birth_visible
