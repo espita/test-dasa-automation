@@ -12,3 +12,9 @@ Background: Register a new user
     When that I register a new user
 
 Scenario: Purchase flow
+    Given I search a product 
+     When I select a product
+     And Add to cart
+     And fill in check out information
+     Then I finish checkout process
+     And I see you a message success
