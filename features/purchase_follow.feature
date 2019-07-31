@@ -18,3 +18,5 @@ Scenario: Purchase flow
      And fill in check out information
      Then I finish checkout process
      And I see you a message success
+     | Message confirmation                |
+     | Your order on My Store is complete. |
