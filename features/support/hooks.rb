@@ -3,28 +3,18 @@ Before do
 end
 
 After do |scenario|
-  add_screenshot(scenario)
-
+  scenario_name = scenario.name.gsub(/\s+/,'_').tr('/','_')
   if scenario.failed?
-    add_screenshot_error
+    add_screenshot(scenario_name.downcase!, 'failed')
+  else
+    add_screenshot(scenario_name.downcase!, 'passed')
   end
 end
 
-def add_screenshot(scenario)
-  time_now = Time.now.strftime("%y.%m.%d-%H:%M")
-  name_scenario = scenario.name.gsub(/[^A-Za-z0-9]/, '')
-  name_scenario = name_scenario.gsub(' ','_').downcase!
-  screenshot = "reports/screenshots/#{name_scenario}-#{time_now}.png"
-  page.save_screenshot(screenshot)
-  embed(screenshot, 'image/png', 'Screenshot :)')
-end
-
-def add_screenshot_error
-  time_now = Time.now.strftime("%y.%m.%d-%H:%M")
-  label = 'error'
-  name_scenario = scenario.failed?.gsub(/[^A-Za-z0-9]/, '')
-  name_scenario = name_scenario.gsub(' ','_').downcase!
-  screenshot = "reports/screenshots/#{label}-#{name_scenario}-#{time_now}.png"
-  page.save_screenshot(screenshot)
-  embed(screenshot, 'image/png', 'Screenshot :)')
+def add_screenshot(file_name, report)
+    time_now = Time.now.strftime("%y.%m.%d-%H:%M")
+    file_path = "reports/screenshot/test_#{report}"
+    picture = "#{file_path}/#{file_name}-#{time_now}.png"
+    page.save_screenshot(picture)
+    embed(picture, 'image/png', 'screenshot')
 end

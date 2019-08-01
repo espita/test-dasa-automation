@@ -16,36 +16,30 @@ BROWSER = ENV['BROWSER']
 ## Environment definitions (BROWSER=firefox / without parameter chrome)
 Capybara.register_driver :selenium do |app|
   if BROWSER.eql?('chrome')
-    Capybara::Selenium::Driver.new(app, :browser => :chrome,
-	    :desired_capabilities => Selenium::WebDriver::Remote::Capabilities.chrome(
-	      'chromeOptions' => {
-	        'args' => [ "--start-maximized" ]
-	      }
-	    )
-	)
+    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: { args: %w["--window-size=1024,768"] }
+  )
+  Capybara::Selenium::Driver.new app, browser: :chrome, desired_capabilities: capabilities 
+
   elsif BROWSER.eql?('chrome_headless')
-    Capybara::Selenium::Driver.new(app, :browser => :chrome,
-      desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-        'chromeOptions'=> { 'args' => ['--headless', 
-                                      'disable-gpu',
-                                      '--disable-dev-shm-usage',
-                                      '--no-sandbox'] }
-      )  
+    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+      chromeOptions: { args: %w(headless disable-gpu window-size=1280,2000 no-sandbox) }
     )
+    Capybara::Selenium::Driver.new app, browser: :chrome, desired_capabilities: capabilities
+    
   elsif BROWSER.eql?('firefox')
     browser_options = Selenium::WebDriver::Firefox::Options.new
     browser_options.add_argument("--width=1900");
     browser_options.add_argument("--height=1080");
-    Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options)
+    Capybara::Selenium::Driver.new app, browser: :firefox, options: browser_options
 
   elsif BROWSER.eql?('firefox_headless') 
     browser_options = Selenium::WebDriver::Firefox::Options.new
     browser_options.add_argument('--headless')
     browser_options.add_argument('--width=1900')
     browser_options.add_argument('--height=1080')
-    Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options)
+    Capybara::Selenium::Driver.new app, browser: :firefox, options: browser_options 
   end
-
 end
 Capybara.configure do |config|
   config.default_driver = :selenium

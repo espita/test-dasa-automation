@@ -25,7 +25,7 @@ When('I select a product') do
   @item = ItemTShirtPage.new
   @item.item_hover.click
 
-  if BROWSER.eql?('chrome')
+  if BROWSER.eql?('chrome') || BROWSER.eql?('chrome_headless')
     @item.wait_until_item_visible
     @item.wait_until_item_hover_visible
     @item.item_hover.click
