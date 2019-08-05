@@ -9,6 +9,7 @@ This is automated test designed using Ruby as language, Cubumber as BDD framewor
 * ChromeDriver - This is a driver for default browser [ChromeDriver](https://chromedriver.chromium.org/)
 * Firefox
 * GeckoDriver - This is a driver for browser Firefox [GeckoDriver](https://github.com/mozilla/geckodriver
+
 ### Dependencies
 
 * Capybara [Gem Capybara](https://github.com/teamcapybara/capybara)
@@ -84,6 +85,7 @@ $ bundle exec cucumber -p chrome -p report
 # Environment Docker
 
 ### Requirement
+
 >install Docker
  
  Docker [Docker](https://docs.docker.com/install/)
@@ -136,7 +138,6 @@ $ docker run -e BROWSER=firefox_headless
 ```bash
 $ docker run automation-test
 ```
-
 
 # Author
 
