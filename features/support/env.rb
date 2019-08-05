@@ -22,10 +22,13 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new app, browser: :chrome, desired_capabilities: capabilities 
 
   elsif BROWSER.eql?('chrome_headless')
-    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: { args: %w(headless disable-gpu window-size=1280,2000 no-sandbox) }
-    )
-    Capybara::Selenium::Driver.new app, browser: :chrome, desired_capabilities: capabilities
+    browser_options = Selenium::WebDriver::Chrome::Options.new
+    browser_options.add_argument('--headless')
+    browser_options.add_argument('--disable-dev-shm-usage')
+    browser_options.add_argument('--disable-gpu')
+    browser_options.add_argument('--no-sandbox')
+
+    Capybara::Selenium::Driver.new app, browser: :chrome, options: browser_options
     
   elsif BROWSER.eql?('firefox')
     browser_options = Selenium::WebDriver::Firefox::Options.new
@@ -36,8 +39,7 @@ Capybara.register_driver :selenium do |app|
   elsif BROWSER.eql?('firefox_headless') 
     browser_options = Selenium::WebDriver::Firefox::Options.new
     browser_options.add_argument('--headless')
-    browser_options.add_argument('--width=1900')
-    browser_options.add_argument('--height=1080')
+    browser_options.add_argument('--disable-dev-shm-usage')
     Capybara::Selenium::Driver.new app, browser: :firefox, options: browser_options 
   end
 end
