@@ -8,7 +8,7 @@ This is automated test designed using Ruby as language, Cubumber as BDD framewor
 * Google Chrome
 * ChromeDriver - This is a driver for default browser [ChromeDriver](https://chromedriver.chromium.org/)
 * Firefox
-* GeckoDriver - This is a driver for browser Firefox [GeckoDriver](https://github.com/mozilla/geckodriver
+* GeckoDriver - This is a driver for browser Firefox [GeckoDriver](https://github.com/mozilla/geckodriver)
 
 ### Dependencies
 
@@ -144,5 +144,4 @@ $ docker run automation-test
 Edson Pita 
 
 <edson.pita.sp@gmail.com> 
-
 [Linkedin](https://www.linkedin.com/in/edsonpita/)
