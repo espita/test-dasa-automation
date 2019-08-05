@@ -1,4 +1,4 @@
-default: -p chrome --no-source --color --format pretty --format html --out reports/execution_report.html
+default: -p chrome --no-source --color --format pretty -f json -o reports/execution.json -x
 cucumber: -r features
 dot: --format progress
 report: --format html -o reports/execution_report.html -f json -o reports/execution.json -x
