@@ -1,7 +1,7 @@
 default: -p chrome --no-source --color --format pretty --format html --out reports/execution_report.html
 cucumber: -r features
 dot: --format progress
-html: --format html -o reports/execution_report.html -f json -o reports/execution.json -x
+report: --format html -o reports/execution_report.html -f json -o reports/execution.json -x
 chrome: BROWSER=chrome
 chrome_headless: BROWSER=chrome_headless
 firefox: BROWSER=firefox
