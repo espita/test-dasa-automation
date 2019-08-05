@@ -142,5 +142,7 @@ $ docker run automation-test
 # Author
 
 Edson Pita 
+
 <edson.pita.sp@gmail.com> 
+
 [Linkedin](https://www.linkedin.com/in/edsonpita/)
