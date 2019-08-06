@@ -142,4 +142,3 @@ docker run -v ~/reports:/automationpractice/reports -e REPORT=true -e BROWSER=ch
 Edson Pita            
 E-mail - <edson.pita.sp@gmail.com>        
 Linkedin - [Linkedin](https://www.linkedin.com/in/edsonpita/)
->>>>>>> adjustment of readme and dockerfile
