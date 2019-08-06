@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 
 ENV BROWSER=firefox_headless
+ENV REPORT=""
 
 RUN apt update && \
     apt install -y curl \
@@ -32,12 +33,10 @@ RUN rm chromedriver_linux64.zip
 
 RUN gem install bundler
 
-COPY . /automation
+COPY . /automationpractice
 
-WORKDIR /automation
+WORKDIR /automationpractice
 
 RUN bundler install 
 
-RUN ls -laGh /usr/bin| grep google
-
-CMD bundle exec cucumber -p ${BROWSER}
+CMD bundle exec cucumber $(if [ "$REPORT" = "true" ] ; then echo " -p report "; else echo ""; fi) -p ${BROWSER}

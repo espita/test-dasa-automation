@@ -76,9 +76,6 @@ $ bundle exec cucumber -p firefox_headless
 
 ```bash
 $ bundle exec cucumber -p firefox -p report 
-```
-
-```bash
 $ bundle exec cucumber -p chrome -p report 
 ```
 
@@ -93,7 +90,7 @@ $ bundle exec cucumber -p chrome -p report
 ### Create image 
 
 ```bash
-$ docker build . -t automation-test
+$ docker build . -t automationpractice-test:0.1
 ```
 
 >show docker images
@@ -109,39 +106,40 @@ $ docker images
 
 ### How do you run : 
 
-```bash
-$ docker run -e BROWSER=firefox_headless
-```
+>if you can export volume reports 
 
->if you can export volume reports
+>create folder for reports
 
 ```bash
 $ mkdir ~/reports
-$ docker run -v ~/reports:/automation/reports -e BROWSER=firefox_headless automation-test
 ```
 
-
-### How do you rum with Docker Hub
-
->pull image docker
+>docker run browser chrome generating screenshot
 
 ```bash
-$ docker pull edsonpita/automation-test
+$ docker run -v ~/reports:/automationpractice/reports -e BROWSER=chrome_headless automationpractice-test:0.1
 ```
 
->run image docker
+>docker run browser firefox generating screenshot
 
 ```bash
-$ docker run -e BROWSER=firefox_headless
+docker run -v ~/reports:/automationpractice/reports -e BROWSER=firefox_headless automationpractice-test:0.1
+```
+>docker run browser firefox generating screenshot and html/json 
+
+```bash
+docker run -v ~/reports:/automationpractice/reports -e REPORT=true -e BROWSER=firefox_headless automationpractice-test:0.1
 ```
 
+>docker run browser chrome generating screenshot and html/json 
+
 ```bash
-$ docker run automation-test
+docker run -v ~/reports:/automationpractice/reports -e REPORT=true -e BROWSER=chrome_headless automationpractice-test:0.1
 ```
 
 # Author
 
-Edson Pita 
-
-<edson.pita.sp@gmail.com> 
-[Linkedin](https://www.linkedin.com/in/edsonpita/)
+Edson Pita            
+E-mail - <edson.pita.sp@gmail.com>        
+Linkedin - [Linkedin](https://www.linkedin.com/in/edsonpita/)
+>>>>>>> adjustment of readme and dockerfile
